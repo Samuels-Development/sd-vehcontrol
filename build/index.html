@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Control UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="vehicle-controls" id="vehicle-controls">
+        <div class="controls-header" id="drag-handle">
+            <div class="controls-title">Vehicle Control</div>
+            <div class="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="controls">Controls</div>
+            <div class="tab" data-tab="lights">Lights</div>
+            <div class="tab" data-tab="settings">Settings</div>
+            <div class="tab" data-tab="seats" id="seats-tab" style="display: none;">Seats</div>
+        </div>
+        
+        <div class="tab-content">
+            <div class="controls-container" id="controls-tab">
+                <div class="engine-btn" id="engine-btn" data-tooltip="Toggle Engine" data-action="engine">
+                    <div class="icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="label">ENGINE</div>
+                    <div class="actions">
+                        <div class="start">START</div>
+                        <div class="stop">STOP</div>
+                    </div>
+                </div>
+                
+                <div class="controls-grid" id="main-grid">
+                    <div class="control-btn" data-tooltip="Front Left Door" data-action="door_fl">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Rear Left Door" data-action="door_rl">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Front Right Door" data-action="door_fr">
+                        <i class="fas fa-door-open fa-flip-horizontal"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Rear Right Door" data-action="door_rr">
+                        <i class="fas fa-door-open fa-flip-horizontal"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Front Left Window" data-action="window_fl">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Rear Left Window" data-action="window_rl">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Front Right Window" data-action="window_fr">
+                        <i class="fas fa-window-maximize fa-flip-horizontal"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Rear Right Window" data-action="window_rr">
+                        <i class="fas fa-window-maximize fa-flip-horizontal"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Hood" data-action="hood">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Trunk" data-action="trunk">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <div class="control-btn" data-tooltip="Toggle All Doors & Windows" data-action="toggle_all">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="control-btn" id="seat-toggle" data-tooltip="Change Seats">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lights-container" id="lights-tab">
+                <div class="lights-categories">
+                    <div class="lights-category">
+                        <div class="category-title">Light Settings</div>
+                        <div class="category-buttons">
+                            <div class="control-btn" data-tooltip="Left Turn Signal" data-action="indicator_left">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Hazard Lights" data-action="hazard">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Right Turn Signal" data-action="indicator_right">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Dome Lights" data-action="lights_interior">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lights-category">
+                        <div class="category-title">Neon Settings</div>
+                        <div class="category-buttons">
+                            <div class="control-btn" data-tooltip="Front Neon" data-action="neon_front">
+                                <i class="fas fa-square"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Rear Neon" data-action="neon_rear">
+                                <i class="fas fa-square"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Left Neon" data-action="neon_left">
+                                <i class="fas fa-square"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="Right Neon" data-action="neon_right">
+                                <i class="fas fa-square"></i>
+                            </div>
+                            <div class="control-btn" data-tooltip="All Neons" data-action="neon_all">
+                                <i class="fas fa-th-large"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-container" id="settings-tab">
+                <div class="settings-section">
+                    <div class="settings-title">UI Theme</div>
+                    <div class="theme-options">
+                        <div class="theme-option theme-green active" data-tooltip="Green Theme" data-theme="green"></div>
+                        <div class="theme-option theme-blue" data-tooltip="Blue Theme" data-theme="blue"></div>
+                        <div class="theme-option theme-red" data-tooltip="Red Theme" data-theme="red"></div>
+                        <div class="theme-option theme-purple" data-tooltip="Purple Theme" data-theme="purple"></div>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <div class="settings-title">UI Scale</div>
+                    <div class="scale-control">
+                        <span class="scale-label">Scale: <span id="scale-value">100%</span></span>
+                        <input type="range" min="70" max="130" step="10" value="100" class="scale-slider" id="scale-slider" data-tooltip="Adjust UI Size">
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <div class="settings-title">UI Position</div>
+                    <div class="position-info">
+                        <i class="fas fa-info-circle"></i> 
+                        <span>Enable drag mode to reposition the UI by dragging the header</span>
+                    </div>
+                    <div class="position-controls">
+                        <button class="toggle-btn" id="drag-toggle" data-tooltip="Toggle Drag Mode">
+                            <i class="fas fa-arrows-alt"></i> Enable Drag Mode
+                        </button>
+                        <button class="reset-btn" id="reset-position" data-tooltip="Reset UI Position">
+                            <i class="fas fa-undo"></i> Reset Position
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="seat-mode-container" id="seat-mode">
+                <div class="back-btn" id="back-btn" data-tooltip="Return to Controls">
+                    <div class="icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="label">BACK</div>
+                </div>
+                
+                <div class="seats-grid" id="seats-grid">
+                </div>
+                
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i> Scroll for more
+                </div>
+            </div>
+        </div>
+        
+        <div class="tooltip-container" id="tooltip-container">
+            <div class="tooltip-content" id="tooltip-content">
+                Tooltip text
+                <div class="tooltip-arrow" id="tooltip-arrow"></div>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
