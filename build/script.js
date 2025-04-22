@@ -292,6 +292,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("keydown", e => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+     return;
+    }
     if (e.key==="e") engineBtn.click();
     else if (e.key==="s") seatToggle.click();
     else if (e.key==="t") {
