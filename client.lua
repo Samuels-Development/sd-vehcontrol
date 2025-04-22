@@ -89,6 +89,10 @@ local OpenUI = function()
     end
 end
 
+exports('OpenMenu', OpenUI)
+
+RegisterNetEvent('sd-vehcontrol:client:openMenu', OpenUI)
+
 --- Closes the Vehicle Control UI.
 --- @return nil
 local CloseUI = function()
