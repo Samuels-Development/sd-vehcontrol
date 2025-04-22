@@ -35,3 +35,9 @@ You can use `/vehcontrol` to open the UI. This can be modified in the config.
 
 ### Keybinds
 You can use the F7 (default) keybind to open the menu. This can be modified in the config.
+
+### Export
+exports['sd-vehcontrol']:OpenMenu()
+
+### Event
+TriggerEvent('sd-vehcontrol:client:openMenu')
