@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Made with Love by Samuel0008'
 description 'Vehicle Control System'
-version '1.0.1'
+version '1.0.2'
 
 ui_page 'build/index.html'
 
