@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sendToFiveM("toggleFreeCamera", { enabled: freeCameraEnabled })
 
-    this.setAttribute("data-tooltip", freeCameraEnabled ? "Disable Free Camera" : "Enable Free Camera")
+    this.setAttribute("data-tooltip", freeCameraEnabled ? "Disable Free Movement" : "Enable Free Movement")
   })
 
   document.addEventListener("keydown", (e) => {
