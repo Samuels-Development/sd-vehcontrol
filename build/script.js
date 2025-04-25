@@ -324,9 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (e.key === "e") engineBtn.click()
     else if (e.key === "c") eyeToggle.click()
-    else if (e.key === "s" && !seatModeActive) {
-      seatToggle.click()
-    } else if (e.key === "t") {
+  else if (e.key === "t") {
       const at = document.querySelector(".tab.active")
       ;(at.nextElementSibling || tabs[0]).click()
     } else if (e.key === "l") tabs[1].click()
