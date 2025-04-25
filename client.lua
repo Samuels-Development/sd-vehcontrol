@@ -1,5 +1,6 @@
 local isUIOpen = false -- Variable to track if the UI is open or not
 local playerSettings = {} -- Table to store ui settings of the player opening it
+local freeCameraEnabled = false -- Variable to track if the free camera is enabled or not
 
 --- Prints debug messages when debugging is enabled.
 --- @param ... vararg Values to print.
@@ -76,6 +77,8 @@ local OpenUI = function()
     if not isUIOpen then
         isUIOpen = true
         SetNuiFocus(true, true)
+        SetNuiFocusKeepInput(false)
+
         local playerPed = PlayerPedId()
         local vehicle = GetVehiclePedIsIn(playerPed, false)
         if vehicle ~= 0 then
@@ -346,4 +349,17 @@ CreateThread(function()
             CloseUI()
         end
     end
+end)
+
+--- Handles NUI toggle for free camera (“freeview”) mode.
+--- @param data table NUI data (data.enabled == true to enable free camera)
+--- @param cb function Callback to invoke.
+--- @return nil
+RegisterNUICallback("toggleFreeCamera", function(data, cb)
+    freeCameraEnabled = data.enabled
+
+    SetNuiFocusKeepInput(freeCameraEnabled)
+
+    DebugPrint("Free camera toggled:", freeCameraEnabled)
+    cb({})
 end)
