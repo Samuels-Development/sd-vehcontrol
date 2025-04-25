@@ -51,6 +51,47 @@ body {
   letter-spacing: 1px;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eye-toggle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.eye-toggle:hover {
+  color: var(--theme-color);
+}
+
+.eye-toggle.active {
+  color: var(--theme-color);
+}
+
+.eye-toggle.active i {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .close-btn {
   width: 20px;
   height: 20px;
